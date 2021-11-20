@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/product.schema.json",
+  "title": "Config Schema",
+  "description": "A schema for the configuration file of my (avolgha) StreamBot",
+  "type": "object",
+  "properties": {
+    "channels": {
+      "description": "All channels the bot will be listening to",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "user": {
+      "description": "The credentials for the Twitch Authentication",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the Twitch Application",
+          "type": "string"
+        },
+        "oauth": {
+          "description": "OAuth string of the Twitch Application",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name", "oauth"
+      ]
+    },
+    "cmd": {
+      "description": "All settings for the command side of the client",
+      "type": "object",
+      "properties": {
+        "prefix": {
+          "description": "The prefix of all commands in the chat",
+          "type": "string"
+        }
+      },
+      "required": [
+        "prefix"
+      ]
+    }
+  },
+  "required": [
+    "channels", "user", "cmd"
+  ]
+}
