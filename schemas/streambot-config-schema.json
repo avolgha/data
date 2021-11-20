@@ -43,9 +43,28 @@
       "required": [
         "prefix"
       ]
+    },
+    "server": {
+      "description": "General settings for the server layout",
+      "type": "object",
+      "properties": {
+        "socketIo": {
+          "description": "Port of the socket io server",
+          "type": "integer",
+          "exclusiveMinimum": 1
+        }, 
+        "express": {
+          "description": "Port of the express server",
+          "type": "integer",
+          "exclusiveMinimum": 1
+        }
+      },
+      "required": [
+        "socketIo", "express"
+      ]
     }
   },
   "required": [
-    "channels", "user", "cmd"
+    "channels", "user", "cmd", "server"
   ]
 }
